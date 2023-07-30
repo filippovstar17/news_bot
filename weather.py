@@ -5,7 +5,7 @@ import python_weather
 
 
 async def get_weather(city):
-    async with python_weather.Client(format=python_weather.METRIC) as client:
+    async with python_weather.Client(unit=python_weather.METRIC) as client:
         weather = await client.get(city)
 
         description = weather.current.description.title()
@@ -60,7 +60,7 @@ async def get_weather(city):
 
         return f"Погода {city}:\n" \
                f"Температура воздуха: {weather.current.temperature} °C\n" \
-               f"{description} {repr(weather.current.type)}\n" \
+               f"{description} {weather.current.kind.emoji}\n" \
                f"Ветер: {round(weather.current.wind_speed / 3.6, 2)} м/с"
 
 
