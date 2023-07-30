@@ -1,0 +1,7 @@
+.idea/
+__pycache__/
+venv/
+*.log
+dan.json
+config.py
+old_main.py
